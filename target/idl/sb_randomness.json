@@ -1,0 +1,197 @@
+{
+  "address": "GHg2C6QNyeSogbQXfuqMCFuRSFEFxNUWpfVbehqnZjy2",
+  "metadata": {
+    "name": "sb_randomness",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "generate",
+      "discriminator": [
+        0,
+        201,
+        120,
+        238,
+        47,
+        35,
+        159,
+        248
+      ],
+      "accounts": [
+        {
+          "name": "random",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  97,
+                  110,
+                  100,
+                  111,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "randomness_account_data"
+        }
+      ],
+      "args": [],
+      "returns": "u64"
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "random",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  97,
+                  110,
+                  100,
+                  111,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Random",
+      "discriminator": [
+        63,
+        64,
+        207,
+        226,
+        234,
+        116,
+        174,
+        141
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "InitEvent",
+      "discriminator": [
+        224,
+        129,
+        78,
+        87,
+        58,
+        43,
+        94,
+        127
+      ]
+    },
+    {
+      "name": "RandomNumberEvent",
+      "discriminator": [
+        64,
+        14,
+        85,
+        240,
+        187,
+        99,
+        18,
+        85
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized access attempt."
+    },
+    {
+      "code": 6001,
+      "name": "SwitchboardRandomnessTooOld"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidDiscriminator"
+    }
+  ],
+  "types": [
+    {
+      "name": "InitEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "number",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Random",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "number",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RandomNumberEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "value",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "constants": [
+    {
+      "name": "RANDOM_TAG",
+      "type": "bytes",
+      "value": "[114, 97, 110, 100, 111, 109]"
+    }
+  ]
+}
